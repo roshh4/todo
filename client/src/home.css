@@ -1,0 +1,141 @@
+.home_page{
+  /* background-color: rgb(84,54,59); */
+  margin-top: 5%;
+}
+.head{
+  text-align: center;
+}
+.view {
+  display: flex;
+}
+.addNote{
+  flex:1;
+}
+.view_all{
+  text-align: center;
+  width:100px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    max-width: 400px; 
+    margin: 0 auto;
+    margin-left: auto;
+}
+label{
+    display: block;
+  margin-bottom: 10px;
+  color: rgb(154,123,120);
+  font-weight:600;
+}
+input, textarea {
+  border-radius: 8px;
+  background-color: rgb(200,195,185);
+  width: 100%;
+   padding: 8px; 
+   margin-top: 5px;
+  margin-bottom: 10px; 
+  box-sizing: border-box;
+}
+textarea {
+    height: 270px;
+    resize: vertical; 
+}
+.latest_notes_container{
+  flex:1;
+} 
+.container
+{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /* Adjust as needed for your layout */
+}
+
+.tile {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  width: 300px; /* Set a width for each tile */
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.content {
+  margin-top: 8px; 
+}
+
+.updt {
+  font-style: italic;
+  color: #555; 
+}
+
+.Page1cont {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center; 
+}
+
+.hometile {
+  text-decoration: none;
+  color: #333;
+  background-color: #ccc4c4;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px; /* Reduced padding */
+  margin: 10px;
+  width: 300px; /* Reduced width */
+  height: 90px;
+  transition: background-color 0.3s ease;
+}
+
+.hometile:hover {
+  background-color: #e0e0e0;
+}
+
+
+button {
+  width:70px;
+  height: 40px;
+  font-size: 16px;
+  background-color: rgb(54,28,13);
+  color: rgb(206,173,174);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-end;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+
+.add{
+  text-align: center;
+  padding: 5px;
+  font-size: 25px;
+  font-style:oblique;
+  font-weight:700;
+}
+
+.recents{
+  text-align: center;
+  font-weight: 550;
+  font-size: 20px;
+  font-style: italic;
+}
+
