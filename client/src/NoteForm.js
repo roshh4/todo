@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import fetchTilesData from './LastThreeNotes.js'
 
-const NoteForm = ({ onAddNote }) => {
+const NoteForm = ({ fetchTilesData }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [addSuccess, setAddSuccess] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    
+    setAddSuccess(true);
     try {
+      console.log('hi');
+        setTitle('');
+        console.log("ooo");
+        setContent('');
       const response = await fetch('http://localhost:3002/api/notes', {
         method: 'POST',
         headers: {
@@ -16,25 +23,20 @@ const NoteForm = ({ onAddNote }) => {
         },
         body: JSON.stringify({ title, content }),
       });
-      console.log('hi');
-      if (response.ok) {
-        console.log('Note added successfully');
-        setTitle('');
-        setContent('');
-        setTimeout(() => {
-          window.location.reload();
-        }, 500);
-      } else {
-        console.error('Failed to add note.');
-      }
+      console.log("ajshfa");
+
+      window.location.reload();
     } catch (error) {
       console.error('Error:', error);
     }
   };
+  const responseOkay = () => {
+    setAddSuccess(false);
+  }
 
   return (
     <form onSubmit={handleSubmit}>
-      <hi class='add'>Add New Note</hi>
+      <hi className='add'>Add New Note</hi>
       <label>
         Title:
         <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
@@ -44,6 +46,10 @@ const NoteForm = ({ onAddNote }) => {
         <textarea value={content} onChange={(e) => setContent(e.target.value)} />
       </label>
       <button type="submit">Save</button>
+      {addSuccess && (<div className = "adds">
+        <p>Note Added Successfully</p>
+        <button onClick={responseOkay}>Okay!</button>
+      </div>)}
     </form>
   );
 };

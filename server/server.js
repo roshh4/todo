@@ -19,8 +19,8 @@ const connectToDB = async () => {
 const db = client.db();
 app.get('/three', async (req, res) => {
   const collection = db.collection('notesApp');
-    const employees = await collection.find().sort({ updatedAt: -1 }).toArray();;
-    res.json(employees);
+    const threeTodos = await collection.find().sort({ updatedAt: -1 }).toArray();
+    res.json(threeTodos);
 });
 
 app.get('/all', async (req, res) => {

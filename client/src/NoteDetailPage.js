@@ -9,6 +9,9 @@ const NoteDetailPage = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState('');
   const [editedContent, setEditedContent] = useState('');
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [updateModal , setUpdateModal] = useState(false);
+
 
   useEffect(() => {
     const fetchNoteDetails = async () => {
@@ -31,6 +34,7 @@ const NoteDetailPage = () => {
   };
 
   const handleSave = async () => {
+    
     try {
       const response = await fetch(`http://localhost:3002/update/${noteId}`, {
         method: 'PUT',
@@ -42,8 +46,10 @@ const NoteDetailPage = () => {
           content: editedContent,
         }),
       });
+      
+      setUpdateModal(true);
 
-      if (response.ok) {
+      if (response) {
         setIsEditing(false);
         const updatedNoteDetails = await response.json();
         setNoteDetails(updatedNoteDetails);
@@ -56,13 +62,24 @@ const NoteDetailPage = () => {
   };
 
   const handleDelete = async () => {
-    try {
-      const response = await fetch(`http://localhost:3002/delete/${noteId}`, {
-        method: 'DELETE',
-      });
-    } catch (error) {
-      console.error('Error deleting note', error);
-    }
+    setShowDeleteModal(true);
+  };
+  
+
+  const confirmDelete = async () => {
+    const response = await fetch(`http://localhost:3002/delete/${noteId}`, {
+      method: 'DELETE',
+    });
+    if (response) {
+        console.log('Note deleted successfully');
+        setShowDeleteModal(false);
+      } else {
+        console.error('Failed to delete note');
+      }
+  }
+
+  const cancelDelete = () => {
+    setShowDeleteModal(false);
   };
 
   const handleCancel = () => {
@@ -71,13 +88,16 @@ const NoteDetailPage = () => {
     setIsEditing(false);
   };
 
+  const responseOkay = () =>{
+    setUpdateModal(false);
+  }
+
   return (
-    <div>
-      <h2>Note Detail Page</h2>
+    <div className='b'>
       {noteDetails && (
         <div>
           {isEditing && (
-            <div>
+            <div className='c'>
               <label>Title:</label>
               <input
                 type="text"
@@ -89,25 +109,35 @@ const NoteDetailPage = () => {
                 value={editedContent}
                 onChange={(e) => setEditedContent(e.target.value)}
               />
-              <Link to="/note_list"><button onClick={handleSave}>Save</button></Link>
+              <button onClick={handleSave}>Save</button>
               <button onClick={handleCancel}>Cancel</button>
             </div>
           )}
           {!isEditing && (
-            <div class="a">
+            <div className="a">
               <p>Title: {noteDetails.title}</p>
               <p>Content: {noteDetails.content}</p>
               <p>Last Updated At: {new Date(noteDetails.updatedAt).toLocaleString()}</p>
               <button onClick={handleEdit}>Edit</button>
-              <Link to="/note_list"><button onClick={handleDelete}>Delete</button></Link>
+              <button onClick={handleDelete}>Delete</button>
               <Link to="/note_list"><button>Go Back</button></Link>
             </div>
           )}
         </div>
       )}
-    </div>
+      {showDeleteModal && ( <div className='d'>
+        <p>Are you sure you want to delete this note?</p>
+        <Link to="/note_list"><button onClick={confirmDelete} className='y'>Yes</button></Link>
+        <button onClick={cancelDelete} className='n'>No</button>
+      </div>
+      )}
+    {updateModal && ( <div className='u'>
+      <p>Note Updated successfully</p>
+      <Link to="/note_list"><button onClick={responseOkay} className='o'>Okay!</button></Link>
+      </div>
+    )}
+  </div>
   );
   
 };
-
 export default NoteDetailPage;
