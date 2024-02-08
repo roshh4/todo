@@ -11,8 +11,8 @@ const HomePage = () => {
   };
 
   return (
-    <div class="home_page">
-      <div class="view">
+    <div className="home_page">
+      <div className="view">
       <div className='addNote'><NoteForm onAddNote={handleAddNote} /></div>
       <div className="latest_notes_container">
         <TilesContainer notes={notes} />

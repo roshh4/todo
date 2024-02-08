@@ -9,10 +9,11 @@
     margin-top: 30px;
     margin-bottom: 15px;
 }
+@media only screen and (min-width: 601px) {
 
 .todo-tile {
-     padding: 10px;
-     text-decoration: none;
+    padding: 1%;
+    text-decoration: none;
     margin: 10px 10px; 
     background-color: #e0d7d4;
     border-radius: 8px;
@@ -20,9 +21,63 @@
     color: #333;
     height: 200px;
 } 
+.hp{
+    width: 23%;
+    margin-left: 41%;
+    margin-bottom: 10px;
+}
+}
 
+@media only screen and (max-width: 600px) {
+    .todos-container
+    {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:flex-start;
+        flex-direction: row;
+        width: 100%;
+        margin-left: 45%;
+        text-decoration: none; 
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+    .todo-tile {
+        padding: 10px;
+        text-decoration: none;
+        margin: 10px 10px; 
+       background-color: #e0d7d4;
+       border-radius: 8px;
+       width: 300px;
+       color: #333;
+       height: 200px;
+   } 
+   
 .hp{
     width: 300px;
-    margin-left: 475px;
+    margin-left: 205px;
     margin-bottom: 10px;
-} 
+}
+}
+.adds{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 1000;
+  }
+  
+  .adds p{
+    margin-bottom: 20px;
+  }
+  
+  .adds button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }

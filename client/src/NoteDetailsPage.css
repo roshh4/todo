@@ -1,6 +1,32 @@
+.d, .u {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: 1000;
+}
+
+.d p, .u p {
+  margin-bottom: 20px;
+}
+
+.d button, .u button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 601px) {
+
 .a {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 100px 200px;
     padding: 20px;
 }
 
@@ -40,4 +66,25 @@ button {
   button:hover {
     background-color: #6c757d;
   }
-  
+  .c{
+    width: 50%;
+    margin-left:175px;
+    margin-top: 40px;
+  }
+}
+  @media only screen and (max-width: 600px) {
+    /* Larger screen styles, if needed */
+    .b {
+        margin-left: 200px;
+        margin-top: 200px;
+        margin-right: 0px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    button {
+        width: auto;
+    }
+}
