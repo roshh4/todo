@@ -83,7 +83,6 @@ app.post('/api/notes', async (req, res) => {
 
     app.delete('/delete/:noteId', async (req, res) => {
         const noteId = req.params.noteId;
-        console.log(noteId);
       const deletedNote = await db.collection('notesApp').findOneAndDelete({ _id: new ObjectId(noteId) });
     
         if (deletedNote.value) {

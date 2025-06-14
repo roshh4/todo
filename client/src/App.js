@@ -11,10 +11,6 @@ function App() {
       <Router>
       <header>
         <p className="nts">Notes App</p>
-        {/* <nav>
-          <Link to="/">Home</Link>
-          <Link to="/note_list">View All</Link>
-        </nav> */}
       </header>
         <Routes>
           <Route path="/" element={<HomePage />} />
