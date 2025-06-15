@@ -25,8 +25,7 @@ A simple web-based Todo List application with note management features, built us
 
 1. Clone the repository:
    ```bash
-   git clone <your-repo-url>
-   cd <project-directory>
+  [ git clone <your-repo-url>](https://github.com/roshh4/todo)
    ```
 
 2. Install dependencies:
